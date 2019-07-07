@@ -17,14 +17,14 @@
     .container {
       max-width: 450px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 24px 16px 48px;
       text-align: center;
     }
     h1 {
       font-size: 28px;
       font-weight: bold;
       padding: 0;
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       color: #ba9f84;
     }
     a.ar-link {
@@ -38,15 +38,17 @@
     p.description {
       font-size: 12px;
       color: #aaa;
+      margin: 16px 0;
     }
     a.share-button {
-      padding: 12px 20px;
+      padding: 8px 20px;
       background: #209cee;
       line-height: 24px;
       font-weight: bold;
       color: white;
-      border-radius: 22px;
+      border-radius: 20px;
       cursor: pointer;
+      display: inline-flex;
     }
     .is-hidden {
       display: none;
@@ -60,7 +62,9 @@
       <img src="./tapioca.jpeg">
     </a>
     <p class="description">※ iPhone Safari (iOS 12〜) でご覧ください。</p>
-    <a id="js-share-button" class="share-button is-hidden">このページをシェア</a>
+    <div>
+      <a id="js-share-button" class="share-button ">このページをシェア</a>
+    </div>
   </div>
   <script>
     (function () {
