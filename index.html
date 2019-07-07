@@ -1,10 +1,82 @@
-<html>
+<html lang="ja">
 <head>
-<title>ARタピオカ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <title>ARタピオカ</title>
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:title" content="ARタピオカ" />
+  <meta property="og:description" content="タピオカを飲まなくても写真を撮れるよ。" />
+  <meta property="og:image" content="./tapioca.jpeg" />
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500,800&display=swap&subset=japanese" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+    .container {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      padding: 0;
+      margin: 0 0 16px;
+      color: #ba9f84;
+    }
+    a.ar-link {
+      border-radius: 16px;
+      overflow: hidden;
+      display: block;
+    }
+    a.ar-link img {
+      max-width: 100%;
+    }
+    p.description {
+      font-size: 12px;
+      color: #aaa;
+    }
+    a.share-button {
+      padding: 12px 20px;
+      background: #209cee;
+      line-height: 24px;
+      font-weight: bold;
+      color: white;
+      border-radius: 22px;
+      cursor: pointer;
+    }
+    .is-hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <a href="./tapioca.usdz" rel="ar">
-    <img src="./tapioca.jpeg">
-  </a>
+  <div class="container">
+    <h1>ARタピオカ</h1>
+    <a href="./tapioca.usdz" rel="ar" class="ar-link">
+      <img src="./tapioca.jpeg">
+    </a>
+    <p class="description">※ iPhone Safari (iOS 12〜) でご覧ください。</p>
+    <a id="js-share-button" class="share-button is-hidden">このページをシェア</a>
+  </div>
+  <script>
+    (function () {
+      const shareButton = document.getElementById('js-share-button')
+      if (typeof navigator.share === 'undefined') {
+        return;
+      }
+      shareButton.classList.remove("is-hidden")
+      shareButton.addEventListener('click', () => {
+        navigator.share({
+          url: 'https://okmr-d.github.io/tapioca/',
+          title: document.title,
+          text: '#ARタピオカ'
+        })
+      })
+    }());
+  </script>
 </body>
 </html>
